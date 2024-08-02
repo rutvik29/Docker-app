@@ -24,8 +24,8 @@ A Streamlit application for linear regression analysis. Users can upload a CSV f
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/repositoryname.git
-   cd repositoryname
+   git clone https://github.com/rutvik29/Docker-app.git
+   cd mainb
 Install dependencies:
 
 bash
@@ -36,7 +36,7 @@ Start the Streamlit app:
 
 bash
 Copy code
-streamlit run app.py
+streamlit run main.py
 Open http://localhost:8501 in your web browser.
 
 Docker Setup
@@ -47,7 +47,7 @@ docker build -t my-streamlit-app .
 Run Docker Container
 bash
 Copy code
-docker run -p 8501:8501 my-streamlit-app
+docker run -p 8501:8501 docker-app
 Open http://localhost:8501 in your web browser.
 
 Deployment
@@ -55,7 +55,7 @@ To deploy the app from Docker Hub, run:
 
 bash
 Copy code
-docker run -p 8501:8501 yourusername/my-streamlit-app:latest
+docker run -p 8501:8501 rutvik29/docker-app:latest
 Open http://localhost:8501 in your web browser.
 
 Contact
@@ -69,4 +69,4 @@ Just replace:
 - `yourusername/my-streamlit-app:latest` with your Docker Hub image tag.
 - `your-email@example.com` with your actual contact email.
 
-This should cover all the essential aspects of your project in a simple, clear manner.
+
