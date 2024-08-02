@@ -25,7 +25,7 @@ A Streamlit application for linear regression analysis. Users can upload a CSV f
 
    ```bash
    git clone https://github.com/rutvik29/Docker-app.git
-   cd mainb
+   cd docker-app
 Install dependencies:
 
 bash
