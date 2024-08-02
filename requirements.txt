@@ -1,0 +1,1 @@
+pip install streamlit Flask pandas scikit-learn
