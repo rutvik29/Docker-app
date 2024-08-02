@@ -58,15 +58,6 @@ Copy code
 docker run -p 8501:8501 rutvik29/docker-app:latest
 Open http://localhost:8501 in your web browser.
 
-Contact
-For questions, email your-email@example.com.
 
-javascript
-Copy code
-
-Just replace:
-- `https://github.com/yourusername/repositoryname.git` with your actual GitHub repository URL.
-- `yourusername/my-streamlit-app:latest` with your Docker Hub image tag.
-- `your-email@example.com` with your actual contact email.
 
 
