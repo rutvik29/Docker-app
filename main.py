@@ -1,29 +1,39 @@
-
-from flask import Flask, request, render_template
+import streamlit as st
 import pandas as pd
 from sklearn.linear_model import LinearRegression
+import numpy as np
 
-app = Flask(__name__)
+# Title of the app
+st.title('Machine Learning Analysis App')
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        if 'file' in request.files:
-            file = request.files['file']
-            data = pd.read_csv(file)
+# Option to upload a file
+uploaded_file = st.file_uploader("Upload a CSV file", type="csv")
+if uploaded_file is not None:
+    data = pd.read_csv(uploaded_file)
+    st.write("Data Preview:")
+    st.write(data.head())
+
+    # Simple Linear Regression Model
+    if st.button('Run Analysis'):
+        if 'feature1' in data.columns and 'feature2' in data.columns and 'target' in data.columns:
+            X = data[['feature1', 'feature2']]
+            y = data['target']
+            model = LinearRegression()
+            model.fit(X, y)
+            predictions = model.predict(X)
+            data['Predictions'] = predictions
+            st.write("Analysis Results:")
+            st.write(data[['feature1', 'feature2', 'target', 'Predictions']])
         else:
-           
-            pass
+            st.error("Columns 'feature1', 'feature2', and 'target' are required.")
 
-        model = LinearRegression()
-        X = data[['feature1', 'feature2']]  
-        y = data['target']  
-        model.fit(X, y)
-        predictions = model.predict(X)
-        
-        return render_template('results.html', predictions=predictions)
+# Option to enter data manually
+st.subheader("Enter Data Manually")
+feature1 = st.number_input("Feature 1", value=0.0)
+feature2 = st.number_input("Feature 2", value=0.0)
+target = st.number_input("Target", value=0.0)
 
-    return render_template('index.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if st.button('Submit Data'):
+    input_data = pd.DataFrame([[feature1, feature2, target]], columns=['feature1', 'feature2', 'target'])
+    st.write("Manual Data Submitted:")
+    st.write(input_data)
